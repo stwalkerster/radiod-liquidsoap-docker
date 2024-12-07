@@ -1,4 +1,4 @@
-FROM savonet/liquidsoap:v2.2.5
+FROM savonet/liquidsoap:v2.3.0
 
 USER 0
 RUN echo "deb https://ppa.launchpadcontent.net/tomtomtom/yt-dlp/ubuntu jammy main" > /etc/apt/sources.list.d/ytdlp.list
