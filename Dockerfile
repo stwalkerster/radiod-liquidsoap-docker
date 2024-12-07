@@ -10,4 +10,9 @@ RUN chmod a+r /etc/apt/trusted.gpg.d/ytdlp.asc \
 RUN mkdir /usr/share/liquidsoap/.cache && chown liquidsoap /usr/share/liquidsoap/.cache
 RUN echo "0 0 * * *  root  apt-get update > /dev/null && apt-get install -qy --no-install-recommends yt-dlp  >/dev/null" > /etc/crontab
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh
+
+ENTRYPOINT [ "/usr/bin/tini", "--", "/entrypoint.sh" ]
+
 USER 10000
